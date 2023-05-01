@@ -1,0 +1,40 @@
+{
+  "name": "nft-minter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export",
+    "deploy": "next build && next export && npx thirdweb@latest upload out"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^2.6.0",
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
+    "@thirdweb-dev/react": "^3",
+    "@thirdweb-dev/sdk": "^3",
+    "@thirdweb-dev/storage": "^1.1.2",
+    "ethers": "^5",
+    "framer-motion": "^10.12.4",
+    "next": "^13",
+    "react": "^18.2",
+    "react-dom": "^18.2",
+    "react-hook-form": "^7.43.9",
+    "react-hot-toast": "^2.4.1",
+    "tailwindcss": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.11",
+    "@types/react": "^18",
+    "autoprefixer": "^10.4.14",
+    "css": "^3.0.0",
+    "eslint": "^8.29.0",
+    "eslint-config-next": "^13",
+    "postcss": "^8.4.23",
+    "tailwind": "^4.0.0",
+    "typescript": "^4.9.4"
+  }
+}
