@@ -49,8 +49,10 @@ function Mint() {
             const uri = await storage?.upload(metaData)
             const data = await mintTo({ args: [address, uri] });
             console.info("contract call successs", data);
+            alert("succefully minted an NFT")
         } catch (err) {
             console.error("contract call failure", err);
+            alert("Something went wrong ,please try again later")
         }
     }
 

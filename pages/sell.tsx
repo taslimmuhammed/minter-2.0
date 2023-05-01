@@ -21,6 +21,7 @@ export default function Sell() {
   const [selectedNft, setSelectedNft] = useState<NFTType>();
 
   return (
+    <div className="black -mt-24">
     <Container maxWidth="lg">
       <h1>Sell NFTs</h1>
       {!selectedNft ? (
@@ -72,5 +73,6 @@ export default function Sell() {
         </div>
       )}
     </Container>
+    </div>
   );
 }

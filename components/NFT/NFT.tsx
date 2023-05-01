@@ -4,7 +4,7 @@ import {
   useValidDirectListings,
   useValidEnglishAuctions,
 } from "@thirdweb-dev/react";
-import { NFT } from "@thirdweb-dev/sdk";
+import { DirectListingV3 } from "@thirdweb-dev/sdk";
 import React from "react";
 import {
   MARKETPLACE_ADDRESS,
@@ -14,7 +14,7 @@ import Skeleton from "../Skeleton/Skeleton";
 import styles from "./NFT.module.css";
 
 type Props = {
-  nft: NFT;
+  nft: DirectListingV3;
 };
 
 export default function NFTComponent({ nft }: Props) {
@@ -26,23 +26,23 @@ export default function NFTComponent({ nft }: Props) {
   // 1. Load if the NFT is for direct listing
   const { data: directListing, isLoading: loadingDirect } =
     useValidDirectListings(marketplace, {
-      tokenContract: NFT_COLLECTION_ADDRESS,
-      tokenId: nft.metadata.id,
+      tokenContract: nft.assetContractAddress,
+      tokenId: nft.asset.id,
     });
 
   // 2. Load if the NFT is for auction
   const { data: auctionListing, isLoading: loadingAuction } =
     useValidEnglishAuctions(marketplace, {
       tokenContract: NFT_COLLECTION_ADDRESS,
-      tokenId: nft.metadata.id,
+      tokenId: nft.asset.id,
     });
 
   return (
     <>
-      <ThirdwebNftMedia metadata={nft.metadata} className={styles.nftImage} />
+      <ThirdwebNftMedia metadata={nft.asset} className={styles.nftImage} />
 
-      <p className={styles.nftTokenId}>Token ID #{nft.metadata.id}</p>
-      <p className={styles.nftName}>{nft.metadata.name}</p>
+      <p className={styles.nftTokenId}>Token ID #{nft.asset.id}</p>
+      <p className={styles.nftName}>{nft.asset.name}</p>
 
       <div className={styles.priceContainer}>
         {loadingContract || loadingDirect || loadingAuction ? (
@@ -71,7 +71,7 @@ export default function NFTComponent({ nft }: Props) {
           <div className={styles.nftPriceContainer}>
             <div>
               <p className={styles.nftPriceLabel}>Price</p>
-              <p className={styles.nftPriceValue}>Not for sale</p>
+              <p className={styles.nftPriceValue}>{nft.pricePerToken}</p>
             </div>
           </div>
         )}

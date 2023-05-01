@@ -1,7 +1,6 @@
 import { NFT as NFTType } from "@thirdweb-dev/sdk";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-
+import { useForm} from 'react-hook-form'
 import styles from "../../styles/Sale.module.css";
 import profileStyles from "../../styles/Profile.module.css";
 import {
