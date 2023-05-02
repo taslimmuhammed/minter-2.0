@@ -32,7 +32,7 @@ export default function NFTGrid({
         data.map((nft) =>
           !overrideOnclickBehavior ? (
             <Link
-              href={`/token/${nft.assetContractAddress}/${nft.id}`}
+              href={`/buy/${nft.id}`}
               key={nft.assetContractAddress}
               className={styles.nftContainer}
             >
